@@ -144,10 +144,18 @@ public class ChessBox extends JLabel implements MouseListener {
                     ChessGame.virtualChessBoard[ChessGame.firstPiece.getmyX()][ChessGame.firstPiece.getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
                     ChessGame.firstPiece = null;
                 } else { //different player
-                    ChessGame.setXandYKill(boxX, boxY);
-                    //System.out.println("Box clicked2..var different player");
+//                    ChessGame.setXandYKill(boxX, boxY);
+                    //pawn has a slightly different movement from the rest
+                    //so need to do this
+                    if(ChessGame.firstPiece instanceof Pawn){
+                        ChessGame.setXandYKill(boxX, boxY);
+                        System.out.println("Pawn");
+                    } else {
+                        ChessGame.setXandY(boxX, boxY);
+                    }
+                    System.out.println("Box clicked2..var different player");
                 }
-                //System.out.println("Box clicked..var not passed");
+//                System.out.println("Box clicked..var not passed");
             }
         }
     }

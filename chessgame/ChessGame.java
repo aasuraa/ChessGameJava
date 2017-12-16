@@ -34,7 +34,6 @@ public class ChessGame extends JFrame
 //    public static ChessPiece[] player1Pieces = new ChessPiece[16];
 //    public static ChessPiece[] player2Pieces = new ChessPiece[16];
     public static ChessPiece firstPiece;
-    public static ChessPiece secondPiece;
 //    public static String isTurn = "1";
     
     public static int countMove = 0;
@@ -138,7 +137,7 @@ public class ChessGame extends JFrame
         
 //        player1Pieces[0] = Player1Rook1;
         
-        Rook Player1Rook2 = new Rook("P1 Rook2", 7, 0,2);
+        Rook Player1Rook2 = new Rook("P1 Rook2", 7, 0,1);
         Player1Rook2.setWhiteIcon();
         
         virtualChessBoard[7][0].add(Player1Rook2);
@@ -147,14 +146,24 @@ public class ChessGame extends JFrame
         
 //        player1Pieces[1] = Player1Rook2;
                 
+        // //Place Player2 rooks
+        // Rook Player2Rook1 = new Rook("P2 Rook1",0,7,2);
+        // Player2Rook1.setBlackIcon();
+        
+        // virtualChessBoard[0][7].add(Player2Rook1);
+        // virtualChessBoard[0][7].setOccupied(true);
+        
+        // virtualChessBoard[0][7].setPiece(Player2Rook1);
+         
+        
         //Place Player2 rooks
-        Rook Player2Rook1 = new Rook("P2 Rook1",0,7,1);
+        Rook Player2Rook1 = new Rook("P2 Rook1",3,3,2);
         Player2Rook1.setBlackIcon();
         
-        virtualChessBoard[0][7].add(Player2Rook1);
-        virtualChessBoard[0][7].setOccupied(true);
+        virtualChessBoard[3][3].add(Player2Rook1);
+        virtualChessBoard[3][3].setOccupied(true);
         
-        virtualChessBoard[0][7].setPiece(Player2Rook1);
+        virtualChessBoard[3][3].setPiece(Player2Rook1);
         
 //        player2Pieces[0] = Player2Rook1;
                 
@@ -178,7 +187,7 @@ public class ChessGame extends JFrame
         
 //        player1Pieces[2] = player1Knight1;
                 
-        Knight Player1Knight2 = new Knight("P1 Knight2",6,0,2);
+        Knight Player1Knight2 = new Knight("P1 Knight2",6,0,1);
         Player1Knight2.setWhiteIcon();
         virtualChessBoard[6][0].add(Player1Knight2);
         virtualChessBoard[6][0].setOccupied(true);
@@ -186,12 +195,13 @@ public class ChessGame extends JFrame
         
 //        player1Pieces[3] = Player1Knight2;
         
-        //Place Player2 knights
-        Knight Player2Knight1 = new Knight("P2 Knight1",1,7,1);
+//        //Place Player2 knights
+        Knight Player2Knight1 = new Knight("P2 Knight1",1,7,2);
         Player2Knight1.setBlackIcon();
         virtualChessBoard[1][7].add(Player2Knight1);
         virtualChessBoard[1][7].setOccupied(true);
         virtualChessBoard[1][7].setPiece(Player2Knight1);
+
         
 //        player2Pieces[2] = Player2Knight1;
         
@@ -212,7 +222,7 @@ public class ChessGame extends JFrame
         
 //        player1Pieces[4] = Player1Bishop1;
         
-        Bishop Player1Bishop2 = new Bishop("P1 Bishop2",5,0,2);
+        Bishop Player1Bishop2 = new Bishop("P1 Bishop2",5,0,1);
         Player1Bishop2.setWhiteIcon();
         virtualChessBoard[5][0].add(Player1Bishop2);
         virtualChessBoard[5][0].setOccupied(true);
@@ -221,7 +231,7 @@ public class ChessGame extends JFrame
 //        player1Pieces[5] = Player1Bishop2;
         
         //Place Player2 bishops
-        Bishop Player2Bishop1 = new Bishop("P2 Bishop1",2,7,1);
+        Bishop Player2Bishop1 = new Bishop("P2 Bishop1",2,7,2);
         Player2Bishop1.setBlackIcon();
         virtualChessBoard[2][7].add(Player2Bishop1);
         virtualChessBoard[2][7].setOccupied(true);
