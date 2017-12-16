@@ -78,6 +78,7 @@ public class Pawn extends ChessPiece {
 //            System.out.println(ChessGame.getDestinationX()+""+ChessGame.getDestinationY());//final position
             ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
             ChessGame.firstPiece = null;
+            System.out.println("Invalid Movement");
         }
     }
     
@@ -85,7 +86,6 @@ public class Pawn extends ChessPiece {
         //it can kill diagonally only
         //check the condition for movement and see if the space is occupied by opposite object
         //you can probably use switch case structure, but this looks wayyyyyy cool
-    @Override
     public void killmove(int x, int y){
             
         int a,b,c;
