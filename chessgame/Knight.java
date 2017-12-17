@@ -10,7 +10,7 @@ import javax.swing.BorderFactory;
 import javax.swing.*;
 /**
  *
- * @author Jordan
+ * @author Sagar
  */
 public class Knight extends ChessPiece {
     
@@ -79,7 +79,7 @@ public class Knight extends ChessPiece {
                 virtualChessBoard[getmyX()][getmyY()].setPiece(this); //set the piece value to this.. whatever is passed
                 ChessGame.firstPiece.setVisible(true);
                 ChessGame.firstPiece = null;
-                System.out.println("Nailed it!");
+                System.out.println("Nailed it by the Knight!");
             } else {    //this code runs if its not valid
                 System.out.println("Invalid movement.");
                 ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback

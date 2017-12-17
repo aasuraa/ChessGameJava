@@ -149,7 +149,6 @@ public class ChessBox extends JLabel implements MouseListener {
                     //so need to do this
                     if(ChessGame.firstPiece instanceof Pawn){
                         ChessGame.setXandYKill(boxX, boxY);
-                        System.out.println("Pawn");
                     } else {
                         ChessGame.setXandY(boxX, boxY);
                     }

@@ -12,7 +12,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 /**
  *
- * @author Jordan
+ * @author Sagar
  */
 public class Pawn extends ChessPiece {
    
@@ -82,10 +82,14 @@ public class Pawn extends ChessPiece {
         }
     }
     
-        //lets kill now
-        //it can kill diagonally only
-        //check the condition for movement and see if the space is occupied by opposite object
-        //you can probably use switch case structure, but this looks wayyyyyy cool
+        /*lets kill now
+        it can kill diagonally only
+        check the condition for movement and see if the space is occupied by opposite object
+        you can probably use switch case structure, but this looks wayyyyyy cool
+    
+        Introducing the new killMove lol, anyway the killmove was introduced because paws has a different set of movement
+        while killing. i.e. it moves diagonally not straight while it kills
+        */
     public void killmove(int x, int y){
             
         int a,b,c;
@@ -114,7 +118,7 @@ public class Pawn extends ChessPiece {
             virtualChessBoard[getmyX()][getmyY()].setPiece(this); //set the piece value to this.. whatever is passed
             ChessGame.firstPiece.setVisible(true);
             ChessGame.firstPiece = null;
-            System.out.println("Nailed it!");
+            System.out.println("Nailed it by the Pawn!");
         } else {    //this code runs if its not valid
             System.out.println("Invalid movement.");
             ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
