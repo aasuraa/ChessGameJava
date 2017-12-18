@@ -10,7 +10,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 /**
  *
- * @author Jordan
+ * @author Sagar
  */
 public class King extends ChessPiece {
     //Somehow grab the images that belongs to this class
@@ -23,15 +23,16 @@ public class King extends ChessPiece {
     
     public void setWhiteIcon()
     {
-        Icon wking = new ImageIcon(getClass().getResource("wking.jpg"));
-        this.setIcon(wking);
+        Icon wqueen = new ImageIcon(getClass().getResource("wking.jpg"));
+        this.setIcon(wqueen);
     }
     
     public void setBlackIcon()
     {
-        Icon bking = new ImageIcon(getClass().getResource("bking.jpg"));
-        this.setIcon(bking);
+        Icon bqueen = new ImageIcon(getClass().getResource("bking.jpg"));
+        this.setIcon(bqueen);
     }
-    public void move(int a, int b){
-    }
+    
+    
+    
 }

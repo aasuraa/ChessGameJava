@@ -54,67 +54,23 @@ public class Knight extends ChessPiece {
         we see if it matches then move it
         */
         
-       if(virtualChessBoard[x][y].getOccupied() == true){ //see if the space is clear
-        //box is occupied by enemy
-            if (
-            ((x==(getmyX()+horizontal[0]))&&(y==(getmyY()+vertical[0])))||
-            ((x==(getmyX()+horizontal[1]))&&(y==(getmyY()+vertical[1])))||
-            ((x==(getmyX()+horizontal[2]))&&(y==(getmyY()+vertical[2])))||
-            ((x==(getmyX()+horizontal[3]))&&(y==(getmyY()+vertical[3])))||
-            ((x==(getmyX()+horizontal[4]))&&(y==(getmyY()+vertical[4])))||
-            ((x==(getmyX()+horizontal[5]))&&(y==(getmyY()+vertical[5])))||
-            ((x==(getmyX()+horizontal[6]))&&(y==(getmyY()+vertical[6])))||
-            ((x==(getmyX()+horizontal[7]))&&(y==(getmyY()+vertical[7])))
-            ) {
-                virtualChessBoard[x][y].getPiece().setVisible(false);//make the piecec at destination not visible
-                /*
-                I am not making the ChessBox occupied to false because the new object will move in
-                */
-                virtualChessBoard[getmyX()][getmyY()].setOccupied(false);//initial box set occupied to false
-                setmyX(ChessGame.getDestinationX());
-                setmyY(ChessGame.getDestinationY());
-                
-                virtualChessBoard[x][y].add(ChessGame.firstPiece); //add the firstPiece to the destination
-                virtualChessBoard[getmyX()][getmyY()].setOccupied(true); //set the occupied to true
-                virtualChessBoard[getmyX()][getmyY()].setPiece(this); //set the piece value to this.. whatever is passed
-                ChessGame.firstPiece.setVisible(true);
-                ChessGame.firstPiece = null;
-                System.out.println("Nailed it by the Knight!");
-            } else {    //this code runs if its not valid
-                System.out.println("Invalid movement.");
-                ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
-                ChessGame.firstPiece = null;
-            }
-
-       } else {
-           if (
-            ((x==(getmyX()+horizontal[0]))&&(y==(getmyY()+vertical[0])))||
-            ((x==(getmyX()+horizontal[1]))&&(y==(getmyY()+vertical[1])))||
-            ((x==(getmyX()+horizontal[2]))&&(y==(getmyY()+vertical[2])))||
-            ((x==(getmyX()+horizontal[3]))&&(y==(getmyY()+vertical[3])))||
-            ((x==(getmyX()+horizontal[4]))&&(y==(getmyY()+vertical[4])))||
-            ((x==(getmyX()+horizontal[5]))&&(y==(getmyY()+vertical[5])))||
-            ((x==(getmyX()+horizontal[6]))&&(y==(getmyY()+vertical[6])))||
-            ((x==(getmyX()+horizontal[7]))&&(y==(getmyY()+vertical[7])))
-            ) { 
-                virtualChessBoard[getmyX()][getmyY()].setOccupied(false);//set occupied false for the initial box
-                setmyX(ChessGame.getDestinationX());
-                setmyY(ChessGame.getDestinationY());//set the destination
-               
-                virtualChessBoard[x][y].add(ChessGame.firstPiece);//add piece to box
-                virtualChessBoard[getmyX()][getmyY()].setOccupied(true);//set occupied 
-                virtualChessBoard[getmyX()][getmyY()].setPiece(this);//set piece in box
-                
-                ChessGame.firstPiece.setVisible(true);
-                ChessGame.firstPiece = null;
-                
-                
-            } else {
-                System.out.println("Invalid movement.");
-                ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
-                ChessGame.firstPiece = null;
-            }
-       }
+        if (
+        ((x==(getmyX()+horizontal[0]))&&(y==(getmyY()+vertical[0])))||
+        ((x==(getmyX()+horizontal[1]))&&(y==(getmyY()+vertical[1])))||
+        ((x==(getmyX()+horizontal[2]))&&(y==(getmyY()+vertical[2])))||
+        ((x==(getmyX()+horizontal[3]))&&(y==(getmyY()+vertical[3])))||
+        ((x==(getmyX()+horizontal[4]))&&(y==(getmyY()+vertical[4])))||
+        ((x==(getmyX()+horizontal[5]))&&(y==(getmyY()+vertical[5])))||
+        ((x==(getmyX()+horizontal[6]))&&(y==(getmyY()+vertical[6])))||
+        ((x==(getmyX()+horizontal[7]))&&(y==(getmyY()+vertical[7])))
+        ) {
+            movement(x,y);
+        } else {    //this code runs if its not valid
+            System.out.println("Invalid movement.");
+            ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
+            ChessGame.firstPiece = null;
+        }
+       
     }
 
 }

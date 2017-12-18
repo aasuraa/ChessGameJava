@@ -147,24 +147,17 @@ public class ChessGame extends JFrame
 //        player1Pieces[1] = Player1Rook2;
 
         // //Place Player2 rooks
-        // Rook Player2Rook1 = new Rook("P2 Rook1",0,7,2);
-        // Player2Rook1.setBlackIcon();
+        Rook Player2Rook1 = new Rook("P2 Rook1",0,7,2);
+        Player2Rook1.setBlackIcon();
 
-        // virtualChessBoard[0][7].add(Player2Rook1);
-        // virtualChessBoard[0][7].setOccupied(true);
+        virtualChessBoard[0][7].add(Player2Rook1);
+        virtualChessBoard[0][7].setOccupied(true);
 
-        // virtualChessBoard[0][7].setPiece(Player2Rook1);
+        virtualChessBoard[0][7].setPiece(Player2Rook1);
 
 
         //Place Player2 rooks
-        Rook Player2Rook1 = new Rook("P2 Rook1",1,2,2);
-        Player2Rook1.setBlackIcon();
-
-        virtualChessBoard[1][2].add(Player2Rook1);
-        virtualChessBoard[1][2].setOccupied(true);
-
-        virtualChessBoard[1][2].setPiece(Player2Rook1);
-
+       
 //        player2Pieces[0] = Player2Rook1;
 
         Rook Player2Rook2 = new Rook("P2 Rook2",7,7,2);
@@ -248,7 +241,7 @@ public class ChessGame extends JFrame
 //        player2Pieces[5] = Player2Bishop2;
 
         //Place Player1 Queen
-        Queen Player1Queen = new Queen("P1 Queen",4,0,1);
+        Queens Player1Queen = new Queens("P1 Queen",4,0,1);
         Player1Queen.setWhiteIcon();
         virtualChessBoard[4][0].add(Player1Queen);
         virtualChessBoard[4][0].setOccupied(true);
@@ -266,7 +259,7 @@ public class ChessGame extends JFrame
 //        player1Pieces[7] = Player1King;
 
         //Place Player2 Queen
-        Queen Player2Queen = new Queen("P2 Queen",4,7,2);
+        Queens Player2Queen = new Queens("P2 Queen",4,7,2);
         Player2Queen.setBlackIcon();
         virtualChessBoard[4][7].add(Player2Queen);
         virtualChessBoard[4][7].setOccupied(true);
@@ -313,26 +306,57 @@ public class ChessGame extends JFrame
 
     public static void colorChessBoard()
     {
+//        for(int i = 0; i < 8; i++)
+//        {
+//            if(i % 2 != 0)
+//            {
+//                virtualChessBoard[i][0].setBackground(Color.gray);
+//                virtualChessBoard[i][2].setBackground(Color.gray);
+//                virtualChessBoard[i][4].setBackground(Color.gray);
+//                virtualChessBoard[i][6].setBackground(Color.gray);
+//            }
+//        }
+//
+//        for(int i = 0; i < 8; i++)
+//        {
+//            if(i % 2 == 0)
+//            {
+//                virtualChessBoard[i][1].setBackground(Color.gray);
+//                virtualChessBoard[i][3].setBackground(Color.gray);
+//                virtualChessBoard[i][5].setBackground(Color.gray);
+//                virtualChessBoard[i][7].setBackground(Color.gray);
+//            }
+//        }
+        //Jordan I am just playing with the colors :D
+        
         for(int i = 0; i < 8; i++)
         {
-            if(i % 2 != 0)
-            {
-                virtualChessBoard[i][0].setBackground(Color.gray);
-                virtualChessBoard[i][2].setBackground(Color.gray);
-                virtualChessBoard[i][4].setBackground(Color.gray);
-                virtualChessBoard[i][6].setBackground(Color.gray);
+            if (i%2 == 0) {
+                virtualChessBoard[i][1].setBackground(Color.decode("#C8E6C9"));
+                virtualChessBoard[i][3].setBackground(Color.decode("#C8E6C9"));
+                virtualChessBoard[i][5].setBackground(Color.decode("#C8E6C9"));
+                virtualChessBoard[i][7].setBackground(Color.decode("#C8E6C9"));
             }
+            if(i % 2 != 0){
+                virtualChessBoard[i][0].setBackground(Color.decode("#C8E6C9"));
+                virtualChessBoard[i][2].setBackground(Color.decode("#C8E6C9"));
+                virtualChessBoard[i][4].setBackground(Color.decode("#C8E6C9"));
+                virtualChessBoard[i][6].setBackground(Color.decode("#C8E6C9"));
+            } 
         }
-
-        for(int i = 0; i < 8; i++)
-        {
-            if(i % 2 == 0)
-            {
-                virtualChessBoard[i][1].setBackground(Color.gray);
-                virtualChessBoard[i][3].setBackground(Color.gray);
-                virtualChessBoard[i][5].setBackground(Color.gray);
-                virtualChessBoard[i][7].setBackground(Color.gray);
+        for(int i = 0; i<8; i++){
+            if (i%2 == 0) {
+                virtualChessBoard[i][0].setBackground(Color.decode("#4CAF50"));
+                virtualChessBoard[i][2].setBackground(Color.decode("#4CAF50"));
+                virtualChessBoard[i][4].setBackground(Color.decode("#4CAF50"));
+                virtualChessBoard[i][6].setBackground(Color.decode("#4CAF50"));
             }
+            if(i % 2 != 0){
+                virtualChessBoard[i][1].setBackground(Color.decode("#4CAF50"));
+                virtualChessBoard[i][3].setBackground(Color.decode("#4CAF50"));
+                virtualChessBoard[i][5].setBackground(Color.decode("#4CAF50"));
+                virtualChessBoard[i][7].setBackground(Color.decode("#4CAF50"));
+            } //4CAF50
         }
     }
 
