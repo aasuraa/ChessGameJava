@@ -47,31 +47,12 @@ public class Rook extends ChessPiece {
     If it moves, see the destination is occupied or not
     */
 
-   public void rookMove(int x, int y){
-        if (virtualChessBoard[x][y].getOccupied() == true) {
-            virtualChessBoard[x][y].getPiece().setVisible(false);
-            System.out.println("Nailed it by rook!");
-        }
-        //does the rest even though dest is not occupied
-        virtualChessBoard[getmyX()][getmyY()].setOccupied(false);//set occupied false for the initial box
-        setmyX(ChessGame.getDestinationX());
-        setmyY(ChessGame.getDestinationY());//set the destination
+   
 
-        virtualChessBoard[x][y].add(ChessGame.firstPiece);//add piece to box
-        virtualChessBoard[getmyX()][getmyY()].setOccupied(true);//set occupied
-        virtualChessBoard[getmyX()][getmyY()].setPiece(this);//set piece in box
-        ChessGame.firstPiece.setVisible(true);
-        ChessGame.firstPiece = null;
-   }
-
-   public boolean sayOccupied(int a, int y){
-        return virtualChessBoard[a][y].getOccupied() != false;
-   }
-
-   @Override
+    @Override
     public void move(int x, int y){
         //see if the destination
-        ////x is if it moves verticaclly and y for horizontal movement
+        //x is if it moves verticaclly and y for horizontal movement
         if ((x == getmyX())||(y == getmyY())) { //is there movement
 
             if(y == getmyY()){
@@ -95,7 +76,7 @@ public class Rook extends ChessPiece {
                                     continue; //iterates the next iteration
                                 }
                                 if (sayOccupied(i,y) == true) {
-                                    System.out.println("Rook can't jump pieces.");
+                                    System.out.println("Can't jump pieces.");
                                     ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
                                     ChessGame.firstPiece = null;
                                     break; //if the first is occupied, break there
@@ -103,11 +84,11 @@ public class Rook extends ChessPiece {
                             }
                         /*if the number of false values is equal to the number of box inbetween then the rook is free to move in that direction*/
                         if(arrayFalse == (x-(getmyX()+1))){
-                            rookMove(x,y);
+                            movement(x,y);
                         }
 
                     } else { //one step
-                        rookMove(x, y);
+                        movement(x, y);
                     }
                 } else { //dest is smaller
                 if(x<getmyX()){ //moving left
@@ -123,7 +104,7 @@ public class Rook extends ChessPiece {
                                 continue;
                             }
                             if (sayOccupied(i,y)==true) {
-                                System.out.println("Rook can't jump pieces.");
+                                System.out.println("Can't jump pieces.");
                                 ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);
                                 ChessGame.firstPiece = null;
                                 break;
@@ -131,11 +112,11 @@ public class Rook extends ChessPiece {
                         }
                       /*if the number of false values is equal to the number of box inbetween then the rook is free to move in that direction*/
                         if(arrayFalse == (getmyX()-(x+1))){
-                              rookMove(x,y);
+                              movement(x,y);
                       }
 
                     } else { //one step
-                        rookMove(x, y);
+                        movement(x, y);
                     }
                 }
               }
@@ -144,7 +125,7 @@ public class Rook extends ChessPiece {
                 to code 'cause we already have the structure. So, only the equation can be a challange*/
             } else {//comparing destX and x for horizontal movement
 
-                System.out.println("hey");
+                //System.out.println("hey");
                 if (y > getmyY()) {//if destination is greater than int, moving down
                     if((y-getmyY())>1){ // if not the adjacent piece
                         int i = (getmyY()+1);
@@ -156,17 +137,17 @@ public class Rook extends ChessPiece {
                                 continue;
                             }
                             if(sayOccupied(x,i) == true){
-                                System.out.println("Rook can't jump pieces.");
+                                System.out.println("Can't jump pieces.");
                                 ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
                                 ChessGame.firstPiece = null;
                                 break; //if the first is occupied, break there
                             }
                         }
                         if(arrayFalse == (y-(getmyY()+1))){
-                            rookMove(x,y);
+                            movement(x,y);
                         }
                     } else {
-                      rookMove(x,y);
+                      movement(x,y);
                     }
                 } else { //destination is smaller, moving up
                     if((getmyY()-y)>1){ // if not the adjacent piece
@@ -180,23 +161,25 @@ public class Rook extends ChessPiece {
                                 continue;
                             }
                             if(sayOccupied(x,i) == true){
-                                System.out.println("Rook can't jump pieces.");
+                                System.out.println("Can't jump pieces.");
                                 ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
                                 ChessGame.firstPiece = null;
                                 break; //if the first is occupied, break there
                             }
                         }
                         if(arrayFalse == (getmyY()-(y+1))){
-                            rookMove(x,y);
+                            movement(x,y);
                         }
                     } else {
-                      rookMove(x,y);
+                      movement(x,y);
                     }
                 }
             }
 
         } else {
             System.out.println("Invalid movement!");
+            ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
+            ChessGame.firstPiece = null;
         }
     }
 }

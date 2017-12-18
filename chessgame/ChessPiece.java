@@ -57,11 +57,34 @@ public abstract class ChessPiece extends JLabel implements move {
         //just move to empty spot
     }
     public void killmove(int a, int b){
-        //kill 
+        //kill for pawn
     }
-    
     public void checkValidMove(int a, int b){
         //check valid moves if available
     }
+    public void movement(int x, int y){
+        //actual movement 
+        //this method is general to all the pieces
+        //it only changes the position of piece
+        if (virtualChessBoard[x][y].getOccupied() == true) {
+            virtualChessBoard[x][y].getPiece().setVisible(false);
+            System.out.println("Nailed it!");
+        }
+        //does the rest even though dest is not occupied
+        virtualChessBoard[getmyX()][getmyY()].setOccupied(false);//set occupied false for the initial box
+        setmyX(ChessGame.getDestinationX());
+        setmyY(ChessGame.getDestinationY());//set the destination
+        //I am not making the ChessBox occupied to false because the new object will move in
+            
+        virtualChessBoard[x][y].add(ChessGame.firstPiece);//add piece to box
+        virtualChessBoard[getmyX()][getmyY()].setOccupied(true);//set occupied
+        virtualChessBoard[getmyX()][getmyY()].setPiece(this);//set piece in box
+        ChessGame.firstPiece.setVisible(true);
+        ChessGame.firstPiece = null;
+    }
+    
+    public boolean sayOccupied(int a, int y){
+        return virtualChessBoard[a][y].getOccupied() != false;
+   }
     
 }

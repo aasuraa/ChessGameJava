@@ -60,22 +60,8 @@ public class Pawn extends ChessPiece {
         //so has only 2 valid moves
         //it cannot move forward if there's another player piece
         if ((x == (getmyX()+ horizontal[c]))&&(y == (getmyY()+vertical[c]))&&(virtualChessBoard[x][y].getOccupied() == false)) {//forward movement only
-            virtualChessBoard[getmyX()][getmyY()].setOccupied(false);//set occupied false for the initial box
-            setmyX(ChessGame.getDestinationX());
-            setmyY(ChessGame.getDestinationY());//set the destination
-//            System.out.println("1st st");         
-//            System.out.println(getmyX()+""+getmyY());//initial position
-//            System.out.println(x+""+y);//final position
-            virtualChessBoard[x][y].add(ChessGame.firstPiece);//add piece to box
-            virtualChessBoard[getmyX()][getmyY()].setOccupied(true);//set occupied 
-            virtualChessBoard[getmyX()][getmyY()].setPiece(this);//set piece in box
-            ChessGame.firstPiece.setVisible(true);
-            ChessGame.firstPiece = null;
-            //System.out.println("1st st");
+            movement(x,y);
         } else {
-//            System.out.println("2nd st");
-//            System.out.println(getmyX()+""+getmyY());//initial position
-//            System.out.println(ChessGame.getDestinationX()+""+ChessGame.getDestinationY());//final position
             ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
             ChessGame.firstPiece = null;
             System.out.println("Invalid Movement");
@@ -90,6 +76,7 @@ public class Pawn extends ChessPiece {
         Introducing the new killMove lol, anyway the killmove was introduced because paws has a different set of movement
         while killing. i.e. it moves diagonally not straight while it kills
         */
+    
     public void killmove(int x, int y){
             
         int a,b,c;
@@ -104,21 +91,7 @@ public class Pawn extends ChessPiece {
         }
         
         if ((((x == (getmyX()+ horizontal[a]))&&(y == (getmyY()+vertical[a])))||((x == (getmyX()+ horizontal[b]))&&(y == (getmyY()+vertical[b])))&&(virtualChessBoard[x][y].getOccupied() == true))) {
-            //System.out.println("yolo");
-            virtualChessBoard[x][y].getPiece().setVisible(false);//make the piecec at destination not visible
-            /*
-            I am not making the ChessBox occupied to false because the new object will move in
-            */
-            virtualChessBoard[getmyX()][getmyY()].setOccupied(false);//initial box set occupied to false
-            setmyX(ChessGame.getDestinationX());
-            setmyY(ChessGame.getDestinationY());
-            
-            virtualChessBoard[x][y].add(ChessGame.firstPiece); //add the firstPiece to the destination
-            virtualChessBoard[getmyX()][getmyY()].setOccupied(true); //set the occupied to true
-            virtualChessBoard[getmyX()][getmyY()].setPiece(this); //set the piece value to this.. whatever is passed
-            ChessGame.firstPiece.setVisible(true);
-            ChessGame.firstPiece = null;
-            System.out.println("Nailed it by the Pawn!");
+            movement(x,y);
         } else {    //this code runs if its not valid
             System.out.println("Invalid movement.");
             ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback

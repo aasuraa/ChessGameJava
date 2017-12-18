@@ -117,6 +117,7 @@ public class ChessBox extends JLabel implements MouseListener {
             //System.out.println(ChessGame.firstPiece);
             if(ChessGame.firstPiece == null){ //see if the firstPiece is occupied if not assign it
                 ChessGame.firstPiece = virtualChessBoard[boxX][boxY].getPiece();
+                System.out.println(boxX +""+ boxY);
                 ChessGame.firstPiece.setVisible(false);
             } //firstPiece is occupied
             //System.out.println(ChessGame.firstPiece);
