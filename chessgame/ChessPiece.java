@@ -75,8 +75,13 @@ public abstract class ChessPiece extends JLabel implements move {
         setmyX(ChessGame.getDestinationX());
         setmyY(ChessGame.getDestinationY());//set the destination
         //I am not making the ChessBox occupied to false because the new object will move in
-            
+        
+        try{
         virtualChessBoard[x][y].add(ChessGame.firstPiece);//add piece to box
+        } 
+        catch(Exception e){
+            System.err.println(e);
+        }
         virtualChessBoard[getmyX()][getmyY()].setOccupied(true);//set occupied
         virtualChessBoard[getmyX()][getmyY()].setPiece(this);//set piece in box
         ChessGame.firstPiece.setVisible(true);
@@ -85,6 +90,12 @@ public abstract class ChessPiece extends JLabel implements move {
     
     public boolean sayOccupied(int a, int y){
         return virtualChessBoard[a][y].getOccupied() != false;
+   }
+
+   public void invalidMovement(){
+        System.out.println("Out of the world 'cannot be moved' movement!");
+        ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
+        ChessGame.firstPiece = null;
    }
     
 }

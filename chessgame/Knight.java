@@ -66,9 +66,7 @@ public class Knight extends ChessPiece {
         ) {
             movement(x,y);
         } else {    //this code runs if its not valid
-            System.out.println("Invalid movement.");
-            ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
-            ChessGame.firstPiece = null;
+            invalidMovement();
         }
        
     }

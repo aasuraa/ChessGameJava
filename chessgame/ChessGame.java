@@ -166,7 +166,7 @@ public class ChessGame extends JFrame
         virtualChessBoard[7][7].add(Player2Rook2);
         virtualChessBoard[7][7].setOccupied(true);
 
-        virtualChessBoard[7][7].setPiece(Player2Rook1);
+        virtualChessBoard[7][7].setPiece(Player2Rook2);
 
 //        player2Pieces[1] = Player2Rook2;
 
@@ -241,7 +241,7 @@ public class ChessGame extends JFrame
 //        player2Pieces[5] = Player2Bishop2;
 
         //Place Player1 Queen
-        Queens Player1Queen = new Queens("P1 Queen",4,0,1);
+        Queen Player1Queen = new Queen("P1 Queen",4,0,1);
         Player1Queen.setWhiteIcon();
         virtualChessBoard[4][0].add(Player1Queen);
         virtualChessBoard[4][0].setOccupied(true);
@@ -259,7 +259,7 @@ public class ChessGame extends JFrame
 //        player1Pieces[7] = Player1King;
 
         //Place Player2 Queen
-        Queens Player2Queen = new Queens("P2 Queen",4,7,2);
+        Queen Player2Queen = new Queen("P2 Queen",4,7,2);
         Player2Queen.setBlackIcon();
         virtualChessBoard[4][7].add(Player2Queen);
         virtualChessBoard[4][7].setOccupied(true);

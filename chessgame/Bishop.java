@@ -71,9 +71,7 @@ public class Bishop extends ChessPiece {
                                 continue;//iterates the next iteration
                             }
                             if (sayOccupied(i,j)==true) {
-                                System.out.println("Can't jump pieces.");
-                                ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
-                                ChessGame.firstPiece = null;
+                                invalidMovement();
                                 break; //if the first is occupied, break there
                             }
                         }
@@ -99,9 +97,7 @@ public class Bishop extends ChessPiece {
                                 continue;//iterates the next iteration
                             }
                             if (sayOccupied(i,j)==true) {
-                                System.out.println("Can't jump pieces.");
-                                ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
-                                ChessGame.firstPiece = null;
+                                invalidMovement();
                                 break; //if the first is occupied, break there
                             }
                         }
@@ -130,9 +126,7 @@ public class Bishop extends ChessPiece {
                                 continue;//iterates the next iteration
                             }
                             if (sayOccupied(i,j)==true) {
-                                System.out.println("Can't jump pieces.");
-                                ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
-                                ChessGame.firstPiece = null;
+                                invalidMovement();
                                 break; //if the first is occupied, break there
                             }
                         }
@@ -158,9 +152,7 @@ public class Bishop extends ChessPiece {
                                 continue;//iterates the next iteration
                             }
                             if (sayOccupied(i,j)==true) {
-                                System.out.println("Can't jump pieces.");
-                                ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
-                                ChessGame.firstPiece = null;
+                                invalidMovement();
                                 break; //if the first is occupied, break there
                             }
                         }
@@ -175,9 +167,7 @@ public class Bishop extends ChessPiece {
                 }
             }
         } else {
-            System.out.println("Invalid movement.");
-            ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
-            ChessGame.firstPiece = null;
+            invalidMovement();
         }
     }
 }
