@@ -49,7 +49,7 @@ public class Rook extends ChessPiece {
 
    
 
-    @Override
+//    @Override
     public void move(int x, int y){
         //see if the destination
         //x is if it moves verticaclly and y for horizontal movement
@@ -76,9 +76,7 @@ public class Rook extends ChessPiece {
                                     continue; //iterates the next iteration
                                 }
                                 if (sayOccupied(i,y) == true) {
-                                    System.out.println("Can't jump pieces.");
-                                    ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
-                                    ChessGame.firstPiece = null;
+                                    invalidMovement();
                                     break; //if the first is occupied, break there
                                 }
                             }
@@ -104,9 +102,7 @@ public class Rook extends ChessPiece {
                                 continue;
                             }
                             if (sayOccupied(i,y)==true) {
-                                System.out.println("Can't jump pieces.");
-                                ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);
-                                ChessGame.firstPiece = null;
+                                invalidMovement();
                                 break;
                             }
                         }
@@ -137,9 +133,7 @@ public class Rook extends ChessPiece {
                                 continue;
                             }
                             if(sayOccupied(x,i) == true){
-                                System.out.println("Can't jump pieces.");
-                                ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
-                                ChessGame.firstPiece = null;
+                                invalidMovement();
                                 break; //if the first is occupied, break there
                             }
                         }
@@ -161,9 +155,7 @@ public class Rook extends ChessPiece {
                                 continue;
                             }
                             if(sayOccupied(x,i) == true){
-                                System.out.println("Can't jump pieces.");
-                                ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
-                                ChessGame.firstPiece = null;
+                                invalidMovement();
                                 break; //if the first is occupied, break there
                             }
                         }
@@ -177,9 +169,7 @@ public class Rook extends ChessPiece {
             }
 
         } else {
-            System.out.println("Invalid movement!");
-            ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
-            ChessGame.firstPiece = null;
+            invalidMovement();
         }
     }
 }

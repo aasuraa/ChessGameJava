@@ -62,9 +62,7 @@ public class Pawn extends ChessPiece {
         if ((x == (getmyX()+ horizontal[c]))&&(y == (getmyY()+vertical[c]))&&(virtualChessBoard[x][y].getOccupied() == false)) {//forward movement only
             movement(x,y);
         } else {
-            ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
-            ChessGame.firstPiece = null;
-            System.out.println("Invalid Movement");
+            invalidMovement();
         }
     }
     
@@ -93,9 +91,7 @@ public class Pawn extends ChessPiece {
         if ((((x == (getmyX()+ horizontal[a]))&&(y == (getmyY()+vertical[a])))||((x == (getmyX()+ horizontal[b]))&&(y == (getmyY()+vertical[b])))&&(virtualChessBoard[x][y].getOccupied() == true))) {
             movement(x,y);
         } else {    //this code runs if its not valid
-            System.out.println("Invalid movement.");
-            ChessGame.virtualChessBoard[getmyX()][getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
-            ChessGame.firstPiece = null;
+            invalidMovement();
         }
     }
 }
