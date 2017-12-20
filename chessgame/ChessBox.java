@@ -4,15 +4,11 @@
  * and open the template in the editor.
  */
 package chessgame;
-import static chessgame.ChessGame.colorChessBoard;
 import static chessgame.ChessGame.virtualChessBoard;
-import java.awt.*;
+import java.awt.Color;
 import javax.swing.*;
 import java.awt.event.MouseEvent;
-import java.awt.event.InputEvent;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
 /**
  *
  * @author Jordan
@@ -106,23 +102,47 @@ public class ChessBox extends JLabel implements MouseListener {
         return locationy;
     }
     /*The following method checks if the box has been clicked
-    If it's clicked, is it empty
+    If it's clicked, is it empty??
     If yes, it asks you to select a box which is not empty.. meaning which is occupied
-    After you select the non empty box, firstPiece is assigned*/
+    After you select the non empty box, firstPiece is assigned
+    
+    I am trying to incorporate the player turn technique by counting the number of turns
+    By convention the white goes first.. by racism too
+    what a coincidence!!
+
+    */
     public void firstSelect(){
         if(virtualChessBoard[boxX][boxY].getOccupied() == false){
             System.out.println("Select a piece first! Bitch!");
         
-        } else { //if there is something in the box do this
-            //System.out.println(ChessGame.firstPiece);
-            if(ChessGame.firstPiece == null){ //see if the firstPiece is occupied if not assign it
-                ChessGame.firstPiece = virtualChessBoard[boxX][boxY].getPiece();
-                System.out.println(boxX +""+ boxY);
-                ChessGame.firstPiece.setVisible(false);
-            } //firstPiece is occupied
-            //System.out.println(ChessGame.firstPiece);
+        } else {
+         //if there is something in the box do this
+         
+         
+                if(ChessGame.firstPiece == null){ //see if the firstPiece is occupied if not assign it
+                    ChessGame.firstPiece = virtualChessBoard[boxX][boxY].getPiece();
+                    //System.out.println(boxX +""+ boxY);
+                    
+                if(ChessGame.firstPiece.getPlayer() == ((ChessGame.countMove%2 )+1)){
+                //using count static variable to determing the player piece chosen
+                //if count is even ==> 0, gives 1, white goes
+                //if count is odd  ==> 1, gives 2, black goes
+                    
+                    ChessGame.firstPiece.setVisible(false);
+
+                    
+                } //firstPiece is occupied
+                else { //not player turn
+                    ChessGame.virtualChessBoard[getBoxX()][getBoxY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
+                    ChessGame.firstPiece = null;
+                    System.out.println("Not your turn.");
+                }
+            }
+        
         }
     }
+    
+    @Override
     public void mousePressed(MouseEvent e)
     {
         if(ChessGame.firstPiece == null){
@@ -132,7 +152,8 @@ public class ChessBox extends JLabel implements MouseListener {
             /*If the firstPiece is selected, see if the other box is selected
             If selected, but not occupied get there*/
             if(this.getOccupied() == false){ //move to empty spot
-                ChessGame.setXandY(boxX, boxY); //implements the move method of the piece
+                //implements the move method of the piece
+                ChessGame.firstPiece.move(boxX, boxY);
                 //System.out.println("Box clicked1..var passed");
             } else { 
             /*there is something in the box come here
@@ -142,40 +163,33 @@ public class ChessBox extends JLabel implements MouseListener {
               */
                 //same player piece
                 if(ChessGame.firstPiece.getPlayer() == this.getPiece().getPlayer()){ 
+                    System.out.println("Cann't move there.");
                     ChessGame.virtualChessBoard[ChessGame.firstPiece.getmyX()][ChessGame.firstPiece.getmyY()].add(ChessGame.firstPiece).setVisible(true);//makes it comeback
                     ChessGame.firstPiece = null;
                 } else { //different player
-//                    ChessGame.setXandYKill(boxX, boxY);
-                    //pawn has a slightly different movement from the rest
-                    //so need to do this
-                    if(ChessGame.firstPiece instanceof Pawn){
-                        ChessGame.setXandYKill(boxX, boxY);
-                    } else {
-                        ChessGame.setXandY(boxX, boxY);
-                    }
-                    System.out.println("Box clicked2..var different player");
+                        ChessGame.firstPiece.move(boxX, boxY);             
                 }
-//                System.out.println("Box clicked..var not passed");
             }
         }
     }
     
-    
+    //ChessBox class not being abstract, all mouse click listener methods must be overridden
+    @Override
     public void mouseExited(MouseEvent e)
     {
         
     }
-    
+    @Override
     public void mouseEntered(MouseEvent e)
     {
         
     }
-    
+    @Override
     public void mouseReleased(MouseEvent e)
     {
         
     }
-    
+    @Override
     public void mouseClicked(MouseEvent e)
     {
         

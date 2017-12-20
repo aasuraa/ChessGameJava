@@ -37,6 +37,13 @@ public class ChessGame extends JFrame
 //    public static String isTurn = "1";
 
     public static int countMove = 0;
+    
+    /*
+    Using a countMove variable to determine the player turn.
+    I didn't have much time to create a class and use different functions. So, to 
+    determine the player turn I thought it would be easier and quicker to find 
+    mode of countMove variable. The equation is implemented in ChessBox class.
+    */
 
 
 
@@ -306,118 +313,58 @@ public class ChessGame extends JFrame
 
     public static void colorChessBoard()
     {
-//        for(int i = 0; i < 8; i++)
-//        {
-//            if(i % 2 != 0)
-//            {
-//                virtualChessBoard[i][0].setBackground(Color.gray);
-//                virtualChessBoard[i][2].setBackground(Color.gray);
-//                virtualChessBoard[i][4].setBackground(Color.gray);
-//                virtualChessBoard[i][6].setBackground(Color.gray);
-//            }
-//        }
-//
-//        for(int i = 0; i < 8; i++)
-//        {
-//            if(i % 2 == 0)
-//            {
-//                virtualChessBoard[i][1].setBackground(Color.gray);
-//                virtualChessBoard[i][3].setBackground(Color.gray);
-//                virtualChessBoard[i][5].setBackground(Color.gray);
-//                virtualChessBoard[i][7].setBackground(Color.gray);
-//            }
-//        }
-        //Jordan I am just playing with the colors :D
-        
         for(int i = 0; i < 8; i++)
         {
-            if (i%2 == 0) {
-                virtualChessBoard[i][1].setBackground(Color.decode("#C8E6C9"));
-                virtualChessBoard[i][3].setBackground(Color.decode("#C8E6C9"));
-                virtualChessBoard[i][5].setBackground(Color.decode("#C8E6C9"));
-                virtualChessBoard[i][7].setBackground(Color.decode("#C8E6C9"));
+            if(i % 2 != 0)
+            {
+                virtualChessBoard[i][0].setBackground(Color.gray);
+                virtualChessBoard[i][2].setBackground(Color.gray);
+                virtualChessBoard[i][4].setBackground(Color.gray);
+                virtualChessBoard[i][6].setBackground(Color.gray);
             }
-            if(i % 2 != 0){
-                virtualChessBoard[i][0].setBackground(Color.decode("#C8E6C9"));
-                virtualChessBoard[i][2].setBackground(Color.decode("#C8E6C9"));
-                virtualChessBoard[i][4].setBackground(Color.decode("#C8E6C9"));
-                virtualChessBoard[i][6].setBackground(Color.decode("#C8E6C9"));
-            } 
         }
-        for(int i = 0; i<8; i++){
-            if (i%2 == 0) {
-                virtualChessBoard[i][0].setBackground(Color.decode("#4CAF50"));
-                virtualChessBoard[i][2].setBackground(Color.decode("#4CAF50"));
-                virtualChessBoard[i][4].setBackground(Color.decode("#4CAF50"));
-                virtualChessBoard[i][6].setBackground(Color.decode("#4CAF50"));
+
+        for(int i = 0; i < 8; i++)
+        {
+            if(i % 2 == 0)
+            {
+                virtualChessBoard[i][1].setBackground(Color.gray);
+                virtualChessBoard[i][3].setBackground(Color.gray);
+                virtualChessBoard[i][5].setBackground(Color.gray);
+                virtualChessBoard[i][7].setBackground(Color.gray);
             }
-            if(i % 2 != 0){
-                virtualChessBoard[i][1].setBackground(Color.decode("#4CAF50"));
-                virtualChessBoard[i][3].setBackground(Color.decode("#4CAF50"));
-                virtualChessBoard[i][5].setBackground(Color.decode("#4CAF50"));
-                virtualChessBoard[i][7].setBackground(Color.decode("#4CAF50"));
-            } //4CAF50
         }
-    }
-
-//    public static void activatePlayerOnePieces()
-//    {
-//        for(int i = 0; i < 16; i++)
+        //Jordan I am just playing with the colors :D
+        
+//        for(int i = 0; i < 8; i++)
 //        {
-//            player1Pieces[i].isActive = true;
+//            if (i%2 == 0) {
+//                virtualChessBoard[i][1].setBackground(Color.decode("#C8E6C9"));
+//                virtualChessBoard[i][3].setBackground(Color.decode("#C8E6C9"));
+//                virtualChessBoard[i][5].setBackground(Color.decode("#C8E6C9"));
+//                virtualChessBoard[i][7].setBackground(Color.decode("#C8E6C9"));
+//            }
+//            if(i % 2 != 0){
+//                virtualChessBoard[i][0].setBackground(Color.decode("#C8E6C9"));
+//                virtualChessBoard[i][2].setBackground(Color.decode("#C8E6C9"));
+//                virtualChessBoard[i][4].setBackground(Color.decode("#C8E6C9"));
+//                virtualChessBoard[i][6].setBackground(Color.decode("#C8E6C9"));
+//            } 
 //        }
-//    }
-//
-//    public static void deactivatePlayerOnePieces()
-//    {
-//        for(int i = 0; i < 16; i++)
-//        {
-//            player1Pieces[i].isActive = false;
+//        for(int i = 0; i<8; i++){
+//            if (i%2 == 0) {
+//                virtualChessBoard[i][0].setBackground(Color.decode("#4CAF50"));
+//                virtualChessBoard[i][2].setBackground(Color.decode("#4CAF50"));
+//                virtualChessBoard[i][4].setBackground(Color.decode("#4CAF50"));
+//                virtualChessBoard[i][6].setBackground(Color.decode("#4CAF50"));
+//            }
+//            if(i % 2 != 0){
+//                virtualChessBoard[i][1].setBackground(Color.decode("#4CAF50"));
+//                virtualChessBoard[i][3].setBackground(Color.decode("#4CAF50"));
+//                virtualChessBoard[i][5].setBackground(Color.decode("#4CAF50"));
+//                virtualChessBoard[i][7].setBackground(Color.decode("#4CAF50"));
+//            } //4CAF50
 //        }
-//    }
-//
-//    public static void activatePlayerTwoPieces()
-//    {
-//        for(int i = 0; i < 16; i++)
-//        {
-//            player2Pieces[i].isActive = true;
-//        }
-//    }
-//
-//    public static void deactivatePlayerTwoPieces()
-//    {
-//        for(int i = 0; i < 16; i++)
-//        {
-//            player2Pieces[i].isActive = false;
-//        }
-//    }
-
-    //passing destination set it
-    private static int desX, desY;
-
-    public static void setDestinationX(int x){
-       desX = x;
-    }
-    public static void setDestinationY(int y){
-        desY = y;
-    }
-    public static void setXandY(int x, int y){
-        desX = x;
-        desY = y;
-        firstPiece.move(x, y);//movement method for move only
-    }
-    public static int getDestinationX(){
-        return desX;
-    }
-    public static int getDestinationY(){
-        return desY;
-    }
-    //tokill
-    public static void setXandYKill(int x, int y){
-        desX = x;
-        desY = y;
-        firstPiece.killmove(x,y);
-
     }
 
-    }
+}
