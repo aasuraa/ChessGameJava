@@ -42,8 +42,11 @@ public class Pawn extends ChessPiece {
     
     /* To move diagonally when killing an enemy, you move left or right once and 
     up once
-    This is where horizontal array comes handy*/
-    
+    This is where horizontal array comes handy
+    it can kill diagonally only
+    check the condition for movement and see if the space is occupied by opposite object
+    you can probably use switch case structure, but this looks wayyyyyy cool
+    */
     @Override
     public void move(int x, int y){//x and y are box values
         int a,b,c;
@@ -61,37 +64,12 @@ public class Pawn extends ChessPiece {
         //it cannot move forward if there's another player piece
         if ((x == (getmyX()+ horizontal[c]))&&(y == (getmyY()+vertical[c]))&&(virtualChessBoard[x][y].getOccupied() == false)) {//forward movement only
             movement(x,y);
-        } else {
-            invalidMovement();
-        }
-    }
-    
-        /*lets kill now
-        it can kill diagonally only
-        check the condition for movement and see if the space is occupied by opposite object
-        you can probably use switch case structure, but this looks wayyyyyy cool
-    
-        Introducing the new killMove lol, anyway the killmove was introduced because paws has a different set of movement
-        while killing. i.e. it moves diagonally not straight while it kills
-        */
-    
-    public void killmove(int x, int y){
-            
-        int a,b,c;
-        if(ChessGame.firstPiece.getPlayer()==1) {
-            a = 2;//player1
-            b = 3;
-            c = 1;
-        } else { 
-            a = 4;//player2
-            b = 5;
-            c = 0;
-        }
-        
-        if ((((x == (getmyX()+ horizontal[a]))&&(y == (getmyY()+vertical[a])))||((x == (getmyX()+ horizontal[b]))&&(y == (getmyY()+vertical[b])))&&(virtualChessBoard[x][y].getOccupied() == true))) {
+        } else if (((((x == (getmyX()+ horizontal[a]))&&(y == (getmyY()+vertical[a])))||((x == (getmyX()+ horizontal[b]))&&(y == (getmyY()+vertical[b]))))&&(virtualChessBoard[x][y].getOccupied() == true))) {
             movement(x,y);
         } else {    //this code runs if its not valid
             invalidMovement();
         }
     }
+    
+    
 }

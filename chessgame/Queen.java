@@ -36,7 +36,6 @@ public class Queen extends Rook {
     /*Because I am lazy, I am just copying the code
     The other way to do this will be to make rook and Bishop implement the movements somehow*/
     
-    //movement for rook
 //    @Override
     public void move(int x, int y){
         
